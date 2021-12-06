@@ -11,7 +11,7 @@ const refs = {
 }
 
 
-const onInputChange = (e) => {
+const onFetchCountries = (e) => {
     let x = '';
     x = e.target.value;
     if (x === '') {
@@ -19,6 +19,8 @@ const onInputChange = (e) => {
         return;
     }
 
+
+    
     fetch(`https://restcountries.com/v3.1/name/${x.trim()}?fields=name,capital,population,flags,languages`)
 
         .then(response => {
@@ -42,7 +44,7 @@ const onInputChange = (e) => {
 
             if (country.status === 404) {
                 onCleanFindCountries();
-                onerror();
+                onError();
                 return;
             }
 
@@ -56,4 +58,21 @@ const onInputChange = (e) => {
 }
 
 
-refs.inputCountry.addEventListener('input', debounce(onInputChange, 300))
+
+
+
+
+function onSpecificName() {
+  Notify.info('Too many matches found. Please enter a more specific name.');
+}
+
+function onError(){
+  Notify.failure('Oops, there is no country with that name.');
+}
+
+function onCleanFindCountries(){
+  refs.countryList.innerHTML=''
+  refs.countryInfo.innerHTML=''
+}
+
+refs.inputCountry.addEventListener('input', debounce( onFetchCountries, 300))
