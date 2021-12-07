@@ -20,7 +20,9 @@ body {
   margin-bottom: 16px;
 }
 
-.countries-list {
+ul,
+.countries-list,
+.country-list {
   padding: 0;
 }
 
@@ -30,4 +32,30 @@ li {
 
 .country-name {
   font-size: 24px;
+  font-weight: 600;
+  padding-left: 30px;
+}
+
+.country-name-one {
+  font-size: 48px;
+  font-weight: 700;
+  padding-left: 15px;
+}
+
+.country-description {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.country-description-little {
+  font-weight: 400;
+}
+
+.language {
+  display: inline;
+  font-weight: 400;
+}
+
+.language:not(:last-child)::after {
+  content: ', ';
 }

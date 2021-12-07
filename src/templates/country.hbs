@@ -2,11 +2,12 @@
 <div class="country-card">
     <div class="flag">
         <img src="{{flags.svg}}" alt="{{name.common}}" width="50px">
+        <span class="country-name-one">{{name.common}}</span>
     </div>
-    <h2 class="country-name">{{name.official}}</h2>
-    <p class="card-text">Capital: {{capital}}</p>
-    <p class="card-text">Populations: {{population}}</p>
-    <ul class="languages-list">Languages: {{#each languages}}{{this}}{{/each}}</ul>
-
+    <p class="country-description">Capital: <span class="country-description-little">{{capital}}</span></p>
+    <p class="country-description">Population: <span class="country-description-little">{{population}}</span></p>
+    <ul class="country-description">Languages: 
+        {{#each languages}}<li class="language">{{this}}</li>{{/each}}
+    </ul>
 </div>
 {{/each}}
